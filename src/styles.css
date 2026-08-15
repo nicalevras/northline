@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino,
+    serif;
+
+  --color-paper: #f3eee4;
+  --color-paper-2: #e7dfd0;
+  --color-ink: #1b1814;
+  --color-ink-soft: #4d473e;
+  --color-rule: #c4b59d;
+  --color-copper: #8a3d27;
+  --color-copper-deep: #682e1c;
+  --color-ok: #243d2e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #e4cfc0;
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2.5px solid var(--color-copper);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  z-index: 80;
+  transform: translateY(-140%);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 0.65rem 1rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  transform: translateY(0.75rem);
+}
+
+.display {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  font-weight: 460;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.hairline {
+  border-color: var(--color-rule);
+}
+
+.prose-ink a {
+  color: var(--color-copper-deep);
+  text-underline-offset: 0.18em;
+}
+
+.prose-ink a:hover {
+  color: var(--color-copper);
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--color-rule);
+  background: #faf7f1;
+  padding: 0.7rem 0.85rem;
+  color: inherit;
+  font: inherit;
+}
+
+.field::placeholder {
+  color: #7a7368;
+}
+
+.field:hover {
+  border-color: #a89880;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
