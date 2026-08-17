@@ -14,6 +14,10 @@ npm run dev
 
 Opens at http://localhost:3000.
 
-Contact form appends to `data/inquiries.jsonl` (gitignored). Wire email later.
+Contact form writes to a Cloudflare KV namespace (`INQUIRIES`). Wire email later.
+
+```bash
+npm run deploy   # vite build && wrangler deploy
+```
 
 The site is meant to meet its own bar: one `h1` per page, skip link, labeled fields, visible focus, real text for fees — no overlay, no “ADA certified” banner.

@@ -36,8 +36,9 @@ export const inquire = createServerFn({ method: 'POST' })
       return { ok: false, error: 'Please keep the note under 4,000 characters.' }
     }
 
+    const at = new Date().toISOString()
     const row = JSON.stringify({
-      at: new Date().toISOString(),
+      at,
       name,
       email,
       entity,
@@ -45,15 +46,9 @@ export const inquire = createServerFn({ method: 'POST' })
       note,
     })
 
-    const { appendFile, mkdir } = await import('node:fs/promises')
-    const { dirname, join } = await import('node:path')
-    const { fileURLToPath } = await import('node:url')
-    const dataFile = join(
-      dirname(fileURLToPath(import.meta.url)),
-      '../../data/inquiries.jsonl',
-    )
-    await mkdir(dirname(dataFile), { recursive: true })
-    await appendFile(dataFile, row + '\n', 'utf8')
+    const { env } = await import('cloudflare:workers')
+    const id = crypto.randomUUID()
+    await env.INQUIRIES.put(`inquiry:${at}:${id}`, row)
 
     return { ok: true }
   })

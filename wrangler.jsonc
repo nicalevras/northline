@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "northline",
+  "account_id": "3964732a7fbac1f5593e64f0737ceb8c",
+  // Set this to today's date
+  "compatibility_date": "2026-08-17",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "@tanstack/react-start/server-entry",
+  "observability": {
+    "enabled": true,
+  },
+  "kv_namespaces": [
+    {
+      "binding": "INQUIRIES",
+      "id": "1ba28d848f864d068198802749635c24",
+    },
+  ],
+}
