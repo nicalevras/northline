@@ -14,7 +14,7 @@ npm run dev
 
 Opens at http://localhost:3000.
 
-Contact form writes to a Cloudflare KV namespace (`INQUIRIES`). Wire email later.
+Pages prerender to static HTML at build time. The contact form still runs on the Worker and writes to a Cloudflare KV namespace (`INQUIRIES`). Wire email later.
 
 ```bash
 npm run deploy   # vite build && wrangler deploy
