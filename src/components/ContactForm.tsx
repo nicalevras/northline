@@ -7,13 +7,14 @@ export function ContactForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    const formEl = e.currentTarget
     setPending(true)
     setResult(null)
     try {
-      const form = new FormData(e.currentTarget)
+      const form = new FormData(formEl)
       const next = await inquire({ data: form })
       setResult(next)
-      if (next.ok) e.currentTarget.reset()
+      if (next.ok) formEl.reset()
     } catch {
       setResult({
         ok: false,
