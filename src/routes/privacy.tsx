@@ -10,8 +10,9 @@ export const Route = createFileRoute('/privacy')({
 
 function Privacy() {
   return (
-    <main id="main" className="mx-auto max-w-2xl px-5 py-16 sm:px-8 sm:py-24">
-      <h1 className="display text-4xl sm:text-5xl">Privacy</h1>
+    <main id="main" className="wrap max-w-2xl py-16 sm:py-24">
+      <p className="eyebrow">Legal</p>
+      <h1 className="display mt-4 text-4xl sm:text-5xl">Privacy</h1>
       <div className="prose-ink mt-8 space-y-4 text-ink-soft">
         <p>
           We collect only what you send us through the contact form or by

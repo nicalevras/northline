@@ -11,14 +11,13 @@ export const Route = createFileRoute('/contact')({
 
 function Contact() {
   return (
-    <main id="main" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-      <div className="grid gap-16 lg:grid-cols-12">
+    <main id="main">
+      <div className="wrap grid gap-16 py-16 sm:py-24 lg:grid-cols-12">
         <div className="lg:col-span-5">
-          <p className="text-xs font-medium tracking-[0.16em] text-copper-deep uppercase">
-            Contact
-          </p>
+          <p className="eyebrow">Contact</p>
           <h1 className="display mt-4 text-4xl sm:text-5xl">
-            Send the URL. We’ll tell you if a snapshot is the right next thing.
+            Send the URL. We’ll tell you if a snapshot is the right next
+            thing.
           </h1>
           <p className="mt-6 text-ink-soft">
             Twenty minutes if a call helps. We do not do free full audits. We
@@ -43,7 +42,9 @@ function Contact() {
           </dl>
         </div>
         <div className="lg:col-span-6 lg:col-start-7">
-          <ContactForm />
+          <div className="card p-6 sm:p-8">
+            <ContactForm />
+          </div>
         </div>
       </div>
     </main>

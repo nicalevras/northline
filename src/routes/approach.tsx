@@ -33,50 +33,55 @@ const steps = [
 
 function Approach() {
   return (
-    <main id="main" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-      <p className="text-xs font-medium tracking-[0.16em] text-copper-deep uppercase">
-        Method
-      </p>
-      <h1 className="display mt-4 max-w-3xl text-4xl sm:text-6xl">
-        We work on the site you have.
-      </h1>
-      <p className="mt-8 max-w-2xl text-lg text-ink-soft">
-        CivicPlus, Granicus, Revize, WordPress. The host keeps the contract. We
-        attack the compliance claim — not the CMS. AI drafts. A person signs.
-      </p>
-
-      <ol className="mt-16 max-w-3xl divide-y divide-rule border-y border-rule">
-        {steps.map((step, i) => (
-          <li key={step.title} className="grid gap-3 py-8 sm:grid-cols-[4rem_1fr]">
-            <span className="font-serif text-copper">
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <div>
-              <h2 className="text-xl font-medium">{step.title}</h2>
-              <p className="mt-2 text-ink-soft">{step.body}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-
-      <aside className="mt-16 max-w-3xl border border-rule bg-paper-2/50 px-6 py-8">
-        <h2 className="font-serif text-2xl tracking-[-0.03em]">
-          What we will not say
-        </h2>
-        <ul className="mt-4 list-disc space-y-2 pl-5 text-ink-soft">
-          <li>That a widget made the site meet the rule.</li>
-          <li>That we certify legal ADA compliance.</li>
-          <li>That every PDF from 2011 belongs in the same lot.</li>
-        </ul>
-        <p className="mt-6">
-          <Link
-            to="/fees"
-            className="font-medium text-copper-deep underline-offset-4 hover:underline"
-          >
-            See what it costs
-          </Link>
+    <main id="main">
+      <div className="wrap py-16 sm:py-24">
+        <p className="eyebrow">Method</p>
+        <h1 className="display mt-4 max-w-3xl text-4xl sm:text-6xl">
+          We work on the site you have.
+        </h1>
+        <p className="mt-8 max-w-2xl text-lg text-ink-soft">
+          CivicPlus, Granicus, Revize, WordPress. The host keeps the contract.
+          We attack the compliance claim — not the CMS. AI drafts. A person
+          signs.
         </p>
-      </aside>
+      </div>
+
+      <div className="bg-paper-2">
+        <ol className="wrap py-8 sm:py-12">
+          {steps.map((step, i) => (
+            <li
+              key={step.title}
+              className="grid gap-3 border-b border-rule py-8 first:border-t sm:grid-cols-[4.5rem_1fr] sm:py-10"
+            >
+              <span className="font-serif text-copper-deep">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div>
+                <h2 className="text-xl font-medium">{step.title}</h2>
+                <p className="mt-2 max-w-2xl text-ink-soft">{step.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div className="wrap py-16 sm:py-20">
+        <aside className="card max-w-3xl p-6 sm:p-8">
+          <h2 className="font-serif text-2xl tracking-[-0.03em]">
+            What we will not say
+          </h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-ink-soft">
+            <li>That a widget made the site meet the rule.</li>
+            <li>That we certify legal ADA compliance.</li>
+            <li>That every PDF from 2011 belongs in the same lot.</li>
+          </ul>
+          <p className="mt-6">
+            <Link to="/fees" className="font-medium text-copper-deep underline-offset-4 hover:underline">
+              See what it costs
+            </Link>
+          </p>
+        </aside>
+      </div>
     </main>
   )
 }

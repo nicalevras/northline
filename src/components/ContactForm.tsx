@@ -118,7 +118,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="inline-flex items-center bg-ink px-5 py-3 text-[0.95rem] font-medium text-paper hover:bg-copper-deep disabled:opacity-60"
+        className="btn btn-primary"
       >
         {pending ? 'Sending…' : 'Send'}
       </button>

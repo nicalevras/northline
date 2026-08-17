@@ -18,7 +18,7 @@ export function SiteHeader() {
         >
           <span
             aria-hidden="true"
-            className="block h-2 w-2 translate-y-[-1px] rounded-full bg-copper"
+            className="block h-2 w-2 translate-y-[-1px] rounded-full bg-copper-deep"
           />
           <span className="font-serif text-[1.35rem] font-medium tracking-[-0.03em]">
             {site.name}

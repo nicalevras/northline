@@ -49,64 +49,66 @@ const rows = [
 
 function Fees() {
   return (
-    <main id="main" className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-      <p className="text-xs font-medium tracking-[0.16em] text-copper-deep uppercase">
-        Fees
-      </p>
-      <h1 className="display mt-4 max-w-3xl text-4xl sm:text-6xl">
-        Written down, so purchasing can compare apples.
-      </h1>
-      <p className="mt-8 max-w-2xl text-lg text-ink-soft">
-        Snapshots are built to sit under a typical no-bid cap. Remediations are
-        a not-to-exceed. We do not surprise-invoice a document center.
-      </p>
-
-      <div className="mt-14 overflow-x-auto">
-        <table className="w-full min-w-[40rem] text-left">
-          <caption className="sr-only">Service fees</caption>
-          <thead>
-            <tr className="border-b border-rule text-sm text-ink-soft">
-              <th scope="col" className="py-3 pr-4 font-medium">
-                Service
-              </th>
-              <th scope="col" className="py-3 pr-4 font-medium">
-                For
-              </th>
-              <th scope="col" className="py-3 pr-4 font-medium">
-                Fee
-              </th>
-              <th scope="col" className="py-3 font-medium">
-                Includes
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => (
-              <tr key={row.name + row.who} className="border-b border-rule/80 align-top">
-                <th scope="row" className="py-5 pr-4 font-medium">
-                  {row.name}
-                </th>
-                <td className="py-5 pr-4 text-ink-soft">{row.who}</td>
-                <td className="py-5 pr-4 whitespace-nowrap">{row.price}</td>
-                <td className="py-5 text-ink-soft">{row.note}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+    <main id="main">
+      <div className="wrap py-16 sm:py-24">
+        <p className="eyebrow">Fees</p>
+        <h1 className="display mt-4 max-w-3xl text-4xl sm:text-6xl">
+          Written down, so purchasing can compare apples.
+        </h1>
+        <p className="mt-8 max-w-2xl text-lg text-ink-soft">
+          Snapshots are built to sit under a typical no-bid cap. Remediations
+          are a not-to-exceed. We do not surprise-invoice a document center.
+        </p>
       </div>
 
-      <p className="mt-10 max-w-2xl text-ink-soft">
-        Training is included in remediations and programs, or $1,500–$3,500
-        alone. We never lead with a $5,000 workshop.
-      </p>
-      <p className="mt-8">
-        <Link
-          to="/contact"
-          className="inline-flex bg-ink px-5 py-3 text-[0.95rem] font-medium text-paper no-underline hover:bg-copper-deep"
-        >
+      <div className="bg-paper-2">
+        <div className="wrap overflow-x-auto py-12 sm:py-16">
+          <table className="w-full min-w-[40rem] text-left">
+            <caption className="sr-only">Service fees</caption>
+            <thead>
+              <tr className="border-b border-rule text-sm text-ink-soft">
+                <th scope="col" className="py-3 pr-4 font-medium">
+                  Service
+                </th>
+                <th scope="col" className="py-3 pr-4 font-medium">
+                  For
+                </th>
+                <th scope="col" className="py-3 pr-4 font-medium">
+                  Fee
+                </th>
+                <th scope="col" className="py-3 font-medium">
+                  Includes
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr
+                  key={row.name + row.who}
+                  className="border-b border-rule/80 align-top"
+                >
+                  <th scope="row" className="py-5 pr-4 font-medium">
+                    {row.name}
+                  </th>
+                  <td className="py-5 pr-4 text-ink-soft">{row.who}</td>
+                  <td className="py-5 pr-4 whitespace-nowrap">{row.price}</td>
+                  <td className="py-5 text-ink-soft">{row.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div className="wrap py-16">
+        <p className="max-w-2xl text-ink-soft">
+          Training is included in remediations and programs, or $1,500–$3,500
+          alone. We never lead with a $5,000 workshop.
+        </p>
+        <Link to="/contact" className="btn btn-primary mt-8">
           Ask for a snapshot
         </Link>
-      </p>
+      </div>
     </main>
   )
 }
