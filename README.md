@@ -1,23 +1,51 @@
 # Northline
 
-TanStack Start site for the Title II municipal accessibility practice.
+Northline's prerendered one-page site for its Title II municipal accessibility
+practice. It uses TanStack Start, React, Tailwind CSS, Vite, and Cloudflare
+Workers.
 
-Working name lives in `src/site.ts` — change it there.
+## Local development
 
-Needs Node 22 (Homebrew: `export PATH="/opt/homebrew/opt/node@22/bin:$PATH"`). Vite 8 will not build on Node 20.10.
+Node 22.12 or newer is required.
 
 ```bash
-cd ada-municipal-compliance/website
 npm install
 npm run dev
 ```
 
-Opens at http://localhost:3000.
+The local site opens at <http://localhost:3000>.
 
-Pages prerender to static HTML at build time. The contact form still runs on the Worker and writes to a Cloudflare KV namespace (`INQUIRIES`). Wire email later.
+## Quality checks
 
 ```bash
-npm run deploy   # vite build && wrangler deploy
+npm run typecheck
+npm run build
 ```
 
-The site is meant to meet its own bar: one `h1` per page, skip link, labeled fields, visible focus, real text for fees — no overlay, no “ADA certified” banner.
+`npm run check` runs both. The production build prerenders the homepage to static
+HTML while preserving TanStack Start's server fallback for unknown routes.
+
+## Project structure
+
+- `src/routes` owns URL-level concerns only.
+- `src/pages` composes complete pages from named sections.
+- `src/components` contains reusable UI and focused interactive elements.
+- `src/content` contains structured business copy used by page sections.
+- `src/site.ts` is the single source for site identity, navigation, metadata,
+  contact details, and the snapshot email link.
+- `src/start.ts` applies response headers to server-rendered fallbacks; static
+  assets use the matching rules in `public/_headers`.
+
+Before launch, replace the placeholder `hello@northline.example` address in
+`src/site.ts`. If the production domain changes, update `site.url`,
+`public/robots.txt`, and `public/sitemap.xml` together.
+
+## Deployment
+
+```bash
+npm run deploy
+```
+
+Cloudflare's Vite integration serves the hashed static assets and deploys the
+TanStack Start server entry. Security and caching headers live in
+`public/_headers`; Workers observability is enabled in `wrangler.jsonc`.

@@ -1,11 +1,21 @@
-/** Working name — change this file, not every page. */
 export const site = {
   name: 'Northline',
-  legal: 'Northline LLC',
-  tagline: 'Title II web work for cities, counties, and school districts.',
-  url: 'https://northline.example',
+  legalName: 'Northline LLC',
+  title: 'Northline — Title II web accessibility for local government',
+  description:
+    'We make town, city, and county websites meet WCAG 2.1 AA for the DOJ Title II rule. No overlays, no compliance stamps — hand-tested resident journeys, fixed.',
+  url: 'https://northline.nickalevras.workers.dev',
   email: 'hello@northline.example',
-  phone: '',
   region: 'Nationwide. Based in Massachusetts.',
-  address: 'Massachusetts, United States',
-}
+} as const
+
+export const navigation = [
+  { href: '/#rule', label: 'The rule', showInHeader: true },
+  { href: '/#fees', label: 'Fees', showInHeader: true },
+  { href: '/#start', label: 'Start', showInHeader: false },
+] as const
+
+const snapshotSubject = 'Snapshot request'
+const snapshotBody = 'Town/city:\nSite URL:\nYour role:'
+
+export const snapshotEmailHref = `mailto:${site.email}?subject=${encodeURIComponent(snapshotSubject)}&body=${encodeURIComponent(snapshotBody)}`
