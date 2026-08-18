@@ -10,12 +10,12 @@ const beforeItems = [
 ]
 
 const afterItems = [
-  'Pay water bill',
+  'Search city services',
   'Apply for a permit',
   'View agendas and minutes',
   'Emergency alerts',
   'Mayor Elena Torres',
-  'Search city services',
+  'Pay water bill',
 ]
 
 export function ScreenReaderSpecimen() {
@@ -43,7 +43,7 @@ export function ScreenReaderSpecimen() {
             <div className="h-3 w-12 bg-foreground/10" />
           </div>
           <div className="mb-4 grid grid-cols-4 gap-2">
-            {['Pay', 'Apply', 'Agendas', 'Alerts'].map((label) => (
+            {['Search', 'Apply', 'Agendas', 'Alerts'].map((label) => (
               <div
                 key={label}
                 className="flex h-14 items-end justify-center border border-border bg-secondary pb-1"
@@ -61,11 +61,10 @@ export function ScreenReaderSpecimen() {
             <span className="font-mono text-xs uppercase tracking-widest opacity-80">Screen reader</span>
             <button
               type="button"
-              aria-pressed={fixed}
               onClick={() => setFixed((value) => !value)}
-              className="focus-on-primary border border-primary-foreground/40 px-2 py-1 font-mono text-xs transition-colors hover:bg-primary-foreground/10"
+              className="focus-on-primary border border-primary-foreground bg-primary-foreground px-3 py-1.5 font-mono text-xs font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
             >
-              Show: {fixed ? 'as delivered' : 'after Northline'}
+              Show: {fixed ? 'current condition' : 'after implementation'}
             </button>
           </div>
           <ol
@@ -95,8 +94,8 @@ export function ScreenReaderSpecimen() {
         </div>
       </div>
       <figcaption className="border-t border-border px-4 py-2 font-mono text-xs text-muted-foreground">
-        What a screen reader gets on a typical city homepage — and what it
-        should get.
+        What assistive technology receives on a typical municipal homepage—and
+        what it receives after implementation.
       </figcaption>
     </figure>
   )

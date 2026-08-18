@@ -35,8 +35,8 @@ export function NotFoundPage() {
   return (
     <RouteStatus
       code="404"
-      title="This page is not on the route."
-      description="The address may be old or mistyped. The Northline overview is still available from the homepage."
+      title="This address is not on the site."
+      description="The URL may be outdated or mistyped. The Northline overview is available on the homepage."
       action={<ActionLink href="/">Return home</ActionLink>}
     />
   )
@@ -47,7 +47,7 @@ export function RootErrorPage({ reset }: ErrorComponentProps) {
     <RouteStatus
       code="Something went wrong"
       title="The page could not be loaded."
-      description="Try the request again. If the problem continues, return to the homepage."
+      description="Retry the request. If the problem continues, return to the homepage."
       action={
         <div className="flex flex-wrap gap-3">
           <button
