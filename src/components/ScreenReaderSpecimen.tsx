@@ -63,7 +63,7 @@ export function ScreenReaderSpecimen() {
               type="button"
               aria-pressed={fixed}
               onClick={() => setFixed((value) => !value)}
-              className="border border-primary-foreground/40 px-2 py-1 font-mono text-xs transition-colors hover:bg-primary-foreground/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-foreground"
+              className="focus-on-primary border border-primary-foreground/40 px-2 py-1 font-mono text-xs transition-colors hover:bg-primary-foreground/10"
             >
               Show: {fixed ? 'as delivered' : 'after Northline'}
             </button>
@@ -77,7 +77,7 @@ export function ScreenReaderSpecimen() {
                 key={`${fixed ? 'after' : 'before'}-${index}`}
                 className="flex items-baseline gap-2"
               >
-                <span aria-hidden="true" className="opacity-50">
+                <span aria-hidden="true" className="opacity-70">
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <span

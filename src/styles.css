@@ -58,6 +58,10 @@ button:not(:disabled) {
   outline-offset: 3px;
 }
 
+.focus-on-primary:focus-visible {
+  outline-color: var(--color-primary-foreground);
+}
+
 .skip-link {
   position: absolute;
   left: 1rem;

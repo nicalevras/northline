@@ -86,7 +86,7 @@ function RuleSection() {
             key={commitment}
             className="flex items-baseline gap-2 font-mono text-sm"
           >
-            <span aria-hidden="true" className="opacity-60">
+            <span aria-hidden="true" className="opacity-70">
               ×
             </span>
             {commitment}
@@ -145,9 +145,9 @@ function DeadlinesSection() {
             key={deadline.year}
             className="flex flex-col gap-4 border border-foreground/20 bg-background p-8"
           >
-            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
               {deadline.audience}
-            </p>
+            </h3>
             <p
               className={`font-mono text-5xl font-medium tracking-tight md:text-6xl ${deadline.emphasis === 'accent' ? 'text-accent' : 'text-primary'}`}
             >

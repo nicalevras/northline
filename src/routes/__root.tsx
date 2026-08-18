@@ -7,28 +7,44 @@ import { site } from '../site'
 import appCss from '../styles.css?url'
 
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: site.title },
-      { name: 'description', content: site.description },
-      { name: 'theme-color', content: '#f4f3f0' },
-      { name: 'color-scheme', content: 'light' },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:title', content: site.title },
-      { property: 'og:description', content: site.description },
-      { property: 'og:url', content: site.url },
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:title', content: site.title },
-      { name: 'twitter:description', content: site.description },
-    ],
-    links: [
-      { rel: 'stylesheet', href: appCss },
-      { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' },
-      { rel: 'canonical', href: site.url },
-    ],
-  }),
+  head: ({ match, matches }) => {
+    const currentMatches = [match, ...matches]
+    const isNotFound = currentMatches.some(
+      (routeMatch) =>
+        routeMatch._notFound || routeMatch.status === 'notFound',
+    )
+    const hasError = currentMatches.some(
+      (routeMatch) => routeMatch.status === 'error',
+    )
+    const documentTitle = isNotFound
+      ? `Page not found — ${site.name}`
+      : hasError
+        ? `Page error — ${site.name}`
+        : site.title
+
+    return {
+      meta: [
+        { charSet: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { title: documentTitle },
+        { name: 'description', content: site.description },
+        { name: 'theme-color', content: '#f4f3f0' },
+        { name: 'color-scheme', content: 'light' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:title', content: site.title },
+        { property: 'og:description', content: site.description },
+        { property: 'og:url', content: site.url },
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:title', content: site.title },
+        { name: 'twitter:description', content: site.description },
+      ],
+      links: [
+        { rel: 'stylesheet', href: appCss },
+        { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' },
+        { rel: 'canonical', href: site.url },
+      ],
+    }
+  },
   errorComponent: RootErrorPage,
   notFoundComponent: NotFoundPage,
   shellComponent: RootDocument,
