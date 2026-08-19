@@ -32,13 +32,13 @@ const otherPlatformMarks = [
 
 export function DigitalEstate() {
   return (
-    <div className="mt-10 border border-border bg-background md:mt-12">
+    <div className="mt-12 border border-border bg-background">
       <div className="p-4 sm:p-5 md:p-8">
         <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
           The digital estate
         </p>
 
-        <div className="mt-4 grid gap-2.5 sm:mt-5 md:grid-cols-3 md:gap-3">
+        <div className="mt-5 grid gap-3 md:grid-cols-3">
           {estateLayers.map((layer) => (
             <article
               key={layer.name}

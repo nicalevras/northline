@@ -32,10 +32,10 @@ export function SiteHeader() {
             Experience
           </a>
           <a
-            href="/#engagement"
+            href="/#process"
             className="transition-colors hover:text-foreground"
           >
-            Engagement
+            Process
           </a>
         </nav>
 

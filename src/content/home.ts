@@ -26,7 +26,7 @@ export const deadlines = [
   },
 ] as const
 
-export const engagements = [
+export const phases = [
   {
     price: 'Fixed-fee proposal',
     name: 'Assessment',
