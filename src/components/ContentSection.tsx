@@ -38,7 +38,7 @@ export function SectionLabel({
 }) {
   return (
     <p
-      className={`mb-4 font-mono text-xs uppercase tracking-widest ${onBrand ? 'opacity-70' : 'text-muted-foreground'}`}
+      className={`mb-5 inline-flex w-fit items-center border px-3 py-1.5 font-mono text-xs uppercase tracking-widest ${onBrand ? 'border-primary-foreground/35 bg-primary-foreground/10 text-primary-foreground' : 'border-foreground/20 bg-background text-muted-foreground'}`}
     >
       {children}
     </p>

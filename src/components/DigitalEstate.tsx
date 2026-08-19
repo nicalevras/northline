@@ -1,19 +1,16 @@
-import { estateLayers, journeys } from '../content/home'
+import { estateLayers } from '../content/home'
 
 const platformMarks = [
   {
     name: 'CivicPlus',
-    href: 'https://www.civicplus.com/',
     src: '/platforms/civicplus-mark.svg',
   },
   {
     name: 'Granicus',
-    href: 'https://granicus.com/',
     src: '/platforms/granicus-mark.svg',
   },
   {
     name: 'Revize',
-    href: 'https://www.revize.com/',
     src: '/platforms/revize-mark.webp',
   },
 ] as const
@@ -35,15 +32,18 @@ const otherPlatformMarks = [
 
 export function DigitalEstate() {
   return (
-    <div className="mt-12 border border-border bg-background">
-      <div className="p-5 md:p-8">
+    <div className="mt-10 border border-border bg-background md:mt-12">
+      <div className="p-4 sm:p-5 md:p-8">
         <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
           The digital estate
         </p>
 
-        <div className="mt-5 grid gap-3 md:grid-cols-3">
+        <div className="mt-4 grid gap-2.5 sm:mt-5 md:grid-cols-3 md:gap-3">
           {estateLayers.map((layer) => (
-            <article key={layer.name} className="border border-border p-5">
+            <article
+              key={layer.name}
+              className="border border-border p-4 md:p-5"
+            >
               <h3 className="font-mono text-sm font-medium uppercase tracking-wide text-primary">
                 {layer.name}
               </h3>
@@ -90,34 +90,7 @@ export function DigitalEstate() {
         </div>
       </div>
 
-      <div className="border-t border-border p-5 md:p-8">
-        <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          Resident journeys
-        </p>
-        <div className="mt-5 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-          {journeys.map((journey, index) => (
-            <article
-              key={journey.name}
-              className="flex flex-col gap-8 bg-background p-5 transition-colors hover:bg-card md:p-6"
-            >
-              <span className="font-mono text-xs text-muted-foreground">
-                {String(index + 1).padStart(2, '0')} /{' '}
-                {String(journeys.length).padStart(2, '0')}
-              </span>
-              <div>
-                <h3 className="mb-2 text-xl font-semibold tracking-tight">
-                  {journey.name}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {journey.text}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-
-      <div className="border-t border-border p-5 md:p-8">
+      <div className="border-t border-border p-4 sm:p-5 md:p-8">
         <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
           Representative platforms
         </p>
@@ -128,10 +101,7 @@ export function DigitalEstate() {
         <ul className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
           {platformMarks.map((platform) => (
             <li key={platform.name}>
-              <a
-                href={platform.href}
-                className="flex min-h-16 items-center justify-center gap-3 border border-border px-4 py-3 transition-colors hover:border-primary"
-              >
+              <div className="flex min-h-14 items-center justify-center gap-3 border border-border px-3 py-2.5 sm:min-h-16 sm:px-4 sm:py-3">
                 <img
                   src={platform.src}
                   alt=""
@@ -140,14 +110,14 @@ export function DigitalEstate() {
                   className="size-8 shrink-0 object-contain"
                 />
                 <span className="font-medium">{platform.name}</span>
-              </a>
+              </div>
             </li>
           ))}
           <li>
             <div
               role="group"
               aria-label="Other content management systems, including WordPress, Drupal, and Umbraco"
-              className="flex min-h-16 items-center justify-center gap-3 border border-border px-4 py-3"
+              className="flex min-h-14 items-center justify-center gap-3 border border-border px-3 py-2.5 sm:min-h-16 sm:px-4 sm:py-3"
             >
               <span className="flex -space-x-2" aria-hidden="true">
                 {otherPlatformMarks.map((platform) => (

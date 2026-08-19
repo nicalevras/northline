@@ -8,11 +8,11 @@ import { DigitalEstate } from '../components/DigitalEstate'
 import { MunicipalWork } from '../components/MunicipalWork'
 import { ScreenReaderSpecimen } from '../components/ScreenReaderSpecimen'
 import { deadlines, engagements, findings } from '../content/home'
-import { assessmentEmailHref, site } from '../site'
+import { assessmentEmailHref } from '../site'
 
 export function HomePage() {
   return (
-    <main id="main" className="flex-1">
+    <main id="main" className="flex-1 scroll-mt-32 md:scroll-mt-16">
       <HeroSection />
       <ScopeSection />
       <MandateSection />
@@ -31,7 +31,7 @@ function HeroSection() {
           <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
             ADA Title II · 28 C.F.R. Part 35 · WCAG 2.1 Level AA
           </p>
-          <h1 className="max-w-xl text-balance text-4xl font-bold leading-[1.05] tracking-tight md:text-[3.375rem]">
+          <h1 className="max-w-xl text-balance text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl">
             Federal accessibility, implemented where residents{' '}
             <span className="text-primary">access, apply, and participate.</span>
           </h1>
@@ -41,7 +41,15 @@ function HeroSection() {
             requirements to do the same. The work happens on the systems
             already in production.
           </p>
-          <ActionLink href="#start">Request an assessment</ActionLink>
+          <div className="flex flex-wrap items-center gap-5">
+            <ActionLink href="#start">Request an assessment</ActionLink>
+            <a
+              href="#scope"
+              className="text-sm font-medium underline decoration-foreground/40 underline-offset-4 transition-colors hover:decoration-foreground"
+            >
+              Learn more
+            </a>
+          </div>
         </div>
         <ScreenReaderSpecimen />
       </div>
@@ -51,8 +59,12 @@ function HeroSection() {
 
 function MandateSection() {
   return (
-    <ContentSection tone="brand">
-      <SectionLabel onBrand>§ 2 — Mandate</SectionLabel>
+    <ContentSection
+      id="mandate"
+      tone="brand"
+      className="scroll-mt-32 md:scroll-mt-16"
+    >
+      <SectionLabel onBrand>02 — Mandate</SectionLabel>
       <SectionHeading className="max-w-3xl">
         The Department of Justice established the standard. We implement it.
       </SectionHeading>
@@ -63,21 +75,19 @@ function MandateSection() {
         more must conform by April 26, 2027. Smaller entities and special
         districts must conform by April 26, 2028.
       </p>
-      <div className="mt-12 grid gap-px border border-primary-foreground/25 bg-primary-foreground/25 md:grid-cols-2">
+      <div className="mt-12 grid gap-3 md:grid-cols-2">
         {deadlines.map((deadline) => (
           <article
             key={deadline.year}
-            className="flex flex-col gap-4 bg-primary p-6 md:p-8"
+            className="flex flex-col gap-4 bg-background p-6 text-foreground md:p-8"
           >
-            <h3 className="font-mono text-xs uppercase tracking-widest opacity-75">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
               {deadline.audience}
             </h3>
-            <p
-              className={`font-mono text-5xl font-medium tracking-tight md:text-6xl ${deadline.emphasis === 'accent' ? 'text-accent' : 'text-primary-foreground'}`}
-            >
+            <p className="font-mono text-5xl font-medium tracking-tight text-primary md:text-6xl">
               {deadline.date}, <span className="block">{deadline.year}</span>
             </p>
-            <p className="text-sm leading-relaxed opacity-80">
+            <p className="text-sm leading-relaxed text-muted-foreground">
               {deadline.detail}
             </p>
           </article>
@@ -100,13 +110,15 @@ function MandateSection() {
 
 function ScopeSection() {
   return (
-    <ContentSection tone="muted">
-      <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-        <SectionLabel>§ 1 — Scope</SectionLabel>
-        <SectionHeading className="max-w-2xl">
-          Where accessibility work happens.
-        </SectionHeading>
-        <p className="mt-5 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
+    <ContentSection
+      id="scope"
+      tone="muted"
+      className="scroll-mt-32 md:scroll-mt-16"
+    >
+      <div className="flex w-full flex-col items-center text-center">
+        <SectionLabel>01 — Scope</SectionLabel>
+        <SectionHeading>Where accessibility work happens.</SectionHeading>
+        <p className="mt-5 w-full max-w-3xl text-pretty leading-relaxed text-muted-foreground">
           Northline tests the paths residents use, then implements accessible
           structure, content, and documents in the systems already in
           production. Vendor-controlled services receive reproducible findings,
@@ -120,8 +132,12 @@ function ScopeSection() {
 
 function EngagementSection() {
   return (
-    <ContentSection tone="muted">
-      <SectionLabel>§ 4 — Engagement</SectionLabel>
+    <ContentSection
+      id="engagement"
+      tone="muted"
+      className="scroll-mt-32 md:scroll-mt-16"
+    >
+      <SectionLabel>04 — Engagement</SectionLabel>
       <SectionHeading>Three phases. Priced before work begins.</SectionHeading>
       <ol className="mt-12 grid gap-px border border-border bg-border md:grid-cols-3">
         {engagements.map((engagement, index) => (
@@ -133,7 +149,7 @@ function EngagementSection() {
               <span className="font-mono text-xs text-muted-foreground">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <span className="font-mono text-xs text-primary">
+              <span className="font-mono text-sm font-medium text-primary">
                 {engagement.price}
               </span>
             </div>
@@ -158,22 +174,25 @@ function EngagementSection() {
 
 function MunicipalExperienceSection() {
   return (
-    <ContentSection>
-      <SectionLabel>§ 3 — Experience</SectionLabel>
+    <ContentSection
+      id="experience"
+      className="scroll-mt-32 overflow-x-clip md:scroll-mt-16"
+    >
+      <SectionLabel>03 — Experience</SectionLabel>
       <div className="grid gap-8 lg:grid-cols-2 lg:items-end lg:gap-12">
         <SectionHeading className="max-w-xl">
           Municipal experience. Available nationwide.
         </SectionHeading>
         <div className="flex max-w-xl flex-col gap-4 text-pretty leading-relaxed text-muted-foreground">
           <p>
-            Northline&apos;s method is grounded in hands-on work with municipal
-            governments and designed for cities, towns, counties, districts,
-            and public authorities nationwide.
+            Northline&apos;s method comes from hands-on municipal work across
+            public websites, document libraries, staff publishing workflows,
+            and resident-facing services.
           </p>
           <p>
-            The work aligns leadership, staff, publishers, and contracted
-            providers around one technical standard and a practical sequence
-            for implementation.
+            That experience shapes a practical implementation sequence for
+            cities, towns, counties, districts, and public authorities
+            nationwide.
           </p>
         </div>
       </div>
@@ -189,10 +208,11 @@ function BeginSection() {
     <ContentSection
       id="start"
       tone="brand"
+      className="scroll-mt-32 md:scroll-mt-16"
       innerClassName="grid gap-10 md:grid-cols-2 md:items-center"
     >
       <div className="flex flex-col items-start gap-6">
-        <SectionLabel onBrand>§ 5 — Begin</SectionLabel>
+        <SectionLabel onBrand>05 — Begin</SectionLabel>
         <SectionHeading>Start with an assessment.</SectionHeading>
         <p className="max-w-md text-pretty leading-relaxed opacity-85">
           A ranked review of the journeys and documents residents use.
@@ -200,7 +220,7 @@ function BeginSection() {
           two business days.
         </p>
         <ActionLink href={assessmentEmailHref} variant="inverse">
-          Tell us the URL — {site.email}
+          Request an assessment
         </ActionLink>
       </div>
       <div className="border border-primary-foreground/30">

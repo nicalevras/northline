@@ -11,47 +11,26 @@ export const municipalities = [
   { name: 'Westfield', seal: '/seals/westfield.png' },
 ] as const
 
-export const journeys = [
-  {
-    name: 'Find',
-    text: 'Search, alerts, and emergency information available as text that assistive technology can read.',
-  },
-  {
-    name: 'Apply',
-    text: 'Permit and license applications with programmatic names, a logical order, and usable error handling.',
-  },
-  {
-    name: 'Participate',
-    text: 'Agendas, minutes, and meeting packets published as accessible official records.',
-  },
-  {
-    name: 'Pay',
-    text: 'Vendor-controlled tax, utility, and fee services tested end to end, with reproducible findings and acceptance criteria for the provider.',
-  },
-] as const
-
 export const deadlines = [
   {
     audience: 'Population of 50,000 or more',
     date: 'Apr 26',
     year: '2027',
     detail: 'Counties, larger cities, and many districts. The earlier compliance date.',
-    emphasis: 'accent',
   },
   {
     audience: 'Under 50,000 · special districts',
     date: 'Apr 26',
     year: '2028',
     detail: 'The majority of towns. The same technical standard applies.',
-    emphasis: 'primary',
   },
 ] as const
 
 export const engagements = [
   {
-    price: '$2,500–$3,500',
+    price: 'Fixed-fee proposal',
     name: 'Assessment',
-    text: 'Ten business days. Live inventory, manual review of priority journeys, ranked findings, and a leadership brief. Larger estates are quoted at $6,000–$9,000.',
+    text: 'Ten business days. Live inventory, manual review of priority journeys, ranked findings, and a leadership brief.',
   },
   {
     price: 'Scoped, in writing',
@@ -59,9 +38,9 @@ export const engagements = [
     text: 'Remediation of templates, content, and active documents, plus specifications and acceptance criteria for contracted systems.',
   },
   {
-    price: 'From $399/mo',
+    price: 'Optional ongoing support',
     name: 'Assurance',
-    text: 'Scheduled inventory review, drift reporting, and a standing program that keeps new publication from undoing the work.',
+    text: 'Scheduled inventory review, drift reporting, and a standing program that holds the standard as new content is published.',
   },
 ] as const
 

@@ -36,8 +36,11 @@ export function ScreenReaderSpecimen() {
           cityof——.gov
         </span>
       </div>
-      <div className="flex flex-col sm:flex-row">
-        <div aria-hidden="true" className="flex-1 border-b border-border p-4 sm:border-r sm:border-b-0">
+      <div className="flex flex-col sm:min-h-80 sm:flex-row">
+        <div
+          aria-hidden="true"
+          className="flex-1 border-b border-border p-4 sm:border-r sm:border-b-0"
+        >
           <div className="mb-3 flex items-center justify-between">
             <div className="h-3 w-20 bg-foreground/15" />
             <div className="h-3 w-12 bg-foreground/10" />
@@ -55,21 +58,37 @@ export function ScreenReaderSpecimen() {
           <div className="mb-2 h-2.5 w-full bg-foreground/10" />
           <div className="mb-2 h-2.5 w-5/6 bg-foreground/10" />
           <div className="h-2.5 w-4/6 bg-foreground/10" />
+          <div className="mt-6 grid grid-cols-2 gap-3">
+            {[0, 1].map((card) => (
+              <div key={card} className="border border-border p-3">
+                <div className="mb-3 h-2.5 w-2/3 bg-foreground/15" />
+                <div className="mb-2 h-2 w-full bg-foreground/10" />
+                <div className="h-2 w-4/5 bg-foreground/10" />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex-1 bg-primary p-4 text-primary-foreground">
+        <div className="flex flex-1 flex-col bg-primary p-4 text-primary-foreground">
           <div className="mb-3 flex items-center justify-between gap-2">
-            <span className="font-mono text-xs uppercase tracking-widest opacity-80">Screen reader</span>
-            <button
-              type="button"
-              onClick={() => setFixed((value) => !value)}
-              className="focus-on-primary border border-primary-foreground bg-primary-foreground px-3 py-1.5 font-mono text-xs font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-            >
-              Show: {fixed ? 'current condition' : 'after implementation'}
-            </button>
+            <span className="font-mono text-xs uppercase tracking-widest opacity-80">
+              Screen reader
+            </span>
+            <div className="flex flex-col items-end gap-1.5">
+              <span className="font-mono text-[10px] uppercase tracking-wider opacity-75">
+                Interactive comparison
+              </span>
+              <button
+                type="button"
+                onClick={() => setFixed((value) => !value)}
+                className="focus-on-primary border border-primary-foreground bg-primary-foreground px-3 py-1.5 font-mono text-xs font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                Show: {fixed ? 'current condition' : 'after implementation'}
+              </button>
+            </div>
           </div>
           <ol
             aria-live="polite"
-            className="flex flex-col gap-1.5 font-mono text-xs leading-relaxed"
+            className="flex flex-1 flex-col gap-1.5 font-mono text-xs leading-relaxed sm:justify-between"
           >
             {items.map((item, index) => (
               <li

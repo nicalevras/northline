@@ -19,7 +19,7 @@ export function SiteFooter() {
             href={`mailto:${site.email}`}
             className="transition-colors hover:text-foreground"
           >
-            {site.email}
+            Contact Northline
           </a>
           <p className="mt-2">{site.region}</p>
         </div>
