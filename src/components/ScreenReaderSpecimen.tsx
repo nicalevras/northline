@@ -73,16 +73,26 @@ export function ScreenReaderSpecimen() {
             <span className="font-mono text-xs uppercase tracking-widest opacity-80">
               Screen reader
             </span>
-            <div className="flex flex-col items-end gap-1.5">
-              <span className="font-mono text-[10px] uppercase tracking-wider opacity-75">
-                Interactive comparison
-              </span>
+            <div
+              role="group"
+              aria-label="Screen reader comparison"
+              className="inline-flex border border-primary-foreground"
+            >
               <button
                 type="button"
-                onClick={() => setFixed((value) => !value)}
-                className="focus-on-primary border border-primary-foreground bg-primary-foreground px-3 py-1.5 font-mono text-xs font-medium text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                aria-pressed={!fixed}
+                onClick={() => setFixed(false)}
+                className={`focus-on-primary min-h-9 border-r border-primary-foreground px-2.5 font-mono text-[11px] font-medium transition-colors ${!fixed ? 'bg-primary-foreground text-primary' : 'text-primary-foreground hover:bg-primary-foreground/10'}`}
               >
-                Show: {fixed ? 'current condition' : 'after implementation'}
+                Before
+              </button>
+              <button
+                type="button"
+                aria-pressed={fixed}
+                onClick={() => setFixed(true)}
+                className={`focus-on-primary min-h-9 px-2.5 font-mono text-[11px] font-medium transition-colors ${fixed ? 'bg-primary-foreground text-primary' : 'text-primary-foreground hover:bg-primary-foreground/10'}`}
+              >
+                After
               </button>
             </div>
           </div>

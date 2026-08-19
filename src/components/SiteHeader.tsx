@@ -1,48 +1,113 @@
+import { useEffect, useRef, useState } from 'react'
 import { ActionLink } from './ActionLink'
 import { SiteMark } from './SiteMark'
 
+const navigationItems = [
+  { href: '/#scope', label: 'Scope' },
+  { href: '/#mandate', label: 'Mandate' },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/#process', label: 'Process' },
+] as const
+
 export function SiteHeader() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    if (!isMenuOpen) return
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key !== 'Escape') return
+
+      setIsMenuOpen(false)
+      menuButtonRef.current?.focus()
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isMenuOpen])
+
+  function closeMenu() {
+    setIsMenuOpen(false)
+  }
+
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background">
       <a href="#main" className="skip-link">
         Skip to content
       </a>
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between px-4 py-4 md:flex-nowrap md:px-6">
-        <a href="/" aria-label="Northline home">
+      <div className="mx-auto flex max-w-6xl items-center px-4 py-2.5 md:px-6">
+        <a href="/" aria-label="Northline home" onClick={closeMenu}>
           <SiteMark />
         </a>
 
         <nav
           aria-label="Primary navigation"
-          className="order-3 mt-3 flex w-full items-center justify-end gap-6 border-t border-border pt-3 text-sm font-medium text-muted-foreground md:order-none md:mr-8 md:ml-auto md:mt-0 md:w-auto md:gap-7 md:border-0 md:pt-0"
+          className="ml-auto hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex"
         >
-          <a href="/#scope" className="transition-colors hover:text-foreground">
-            Scope
-          </a>
-          <a
-            href="/#mandate"
-            className="transition-colors hover:text-foreground"
-          >
-            Mandate
-          </a>
-          <a
-            href="/#experience"
-            className="transition-colors hover:text-foreground"
-          >
-            Experience
-          </a>
-          <a
-            href="/#process"
-            className="transition-colors hover:text-foreground"
-          >
-            Process
-          </a>
+          {navigationItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="transition-colors hover:text-foreground"
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
 
-        <ActionLink href="/#start" size="compact">
-          Contact
-        </ActionLink>
+        <div className="ml-auto flex items-center gap-2 md:ml-8">
+          <ActionLink href="/#start" size="compact" onClick={closeMenu}>
+            Contact
+          </ActionLink>
+          <button
+            ref={menuButtonRef}
+            type="button"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={
+              isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'
+            }
+            onClick={() => setIsMenuOpen((open) => !open)}
+            className="inline-flex size-11 items-center justify-center border border-border text-foreground transition-colors hover:bg-secondary md:hidden"
+          >
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="size-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              {isMenuOpen ? (
+                <path d="M6 6l12 12M18 6 6 18" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
+
+      <nav
+        id="mobile-navigation"
+        aria-label="Mobile navigation"
+        hidden={!isMenuOpen}
+        className="border-t border-border bg-background md:hidden"
+      >
+        <div className="mx-auto max-w-6xl px-4 py-1">
+          {navigationItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={closeMenu}
+              className="flex min-h-12 items-center border-b border-border text-base font-medium text-foreground transition-colors last:border-b-0 hover:bg-secondary"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </nav>
     </header>
   )
 }
