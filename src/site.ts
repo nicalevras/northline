@@ -1,21 +1,15 @@
 export const site = {
   name: 'Northline',
   legalName: 'Northline LLC',
-  title: 'Northline — Title II web accessibility for local government',
+  title: 'Northline — Title II implementation for public entities',
   description:
-    'We make town, city, and county websites meet WCAG 2.1 AA for the DOJ Title II rule. No overlays, no compliance stamps — hand-tested resident journeys, fixed.',
+    'Northline implements WCAG 2.1 Level AA for municipal websites, official documents, and contracted resident services under ADA Title II.',
   url: 'https://northline.nickalevras.workers.dev',
   email: 'hello@northline.example',
   region: 'Nationwide. Based in Massachusetts.',
 } as const
 
-export const navigation = [
-  { href: '/#rule', label: 'The rule', showInHeader: true },
-  { href: '/#fees', label: 'Fees', showInHeader: true },
-  { href: '/#start', label: 'Start', showInHeader: false },
-] as const
+const assessmentSubject = 'Accessibility assessment request'
+const assessmentBody = 'Public entity:\nWebsite URL:\nYour role:'
 
-const snapshotSubject = 'Snapshot request'
-const snapshotBody = 'Town/city:\nSite URL:\nYour role:'
-
-export const snapshotEmailHref = `mailto:${site.email}?subject=${encodeURIComponent(snapshotSubject)}&body=${encodeURIComponent(snapshotBody)}`
+export const assessmentEmailHref = `mailto:${site.email}?subject=${encodeURIComponent(assessmentSubject)}&body=${encodeURIComponent(assessmentBody)}`

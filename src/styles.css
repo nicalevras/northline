@@ -76,6 +76,24 @@ button:not(:disabled) {
   transform: translateY(0.75rem);
 }
 
+.municipal-rail {
+  contain: paint;
+  scrollbar-color: var(--color-primary) var(--color-secondary);
+  scrollbar-width: thin;
+}
+
+.municipal-rail::-webkit-scrollbar {
+  height: 0.375rem;
+}
+
+.municipal-rail::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+.municipal-rail::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

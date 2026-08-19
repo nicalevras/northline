@@ -1,15 +1,25 @@
 import { site } from '../site'
 
-export function SiteMark({ showDescriptor = false }: { showDescriptor?: boolean }) {
+export function SiteMark() {
   return (
-    <span className="flex items-center gap-2">
-      <span aria-hidden="true" className="inline-block h-3 w-3 bg-primary" />
-      <span className="text-sm font-semibold tracking-wide">{site.name}</span>
-      {showDescriptor ? (
-        <span className="hidden font-mono text-xs text-muted-foreground sm:inline">
-          / Title II web work
-        </span>
-      ) : null}
+    <span className="flex items-center gap-2.5">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 20 20"
+        className="size-5 shrink-0 text-primary"
+        shapeRendering="crispEdges"
+      >
+        <rect width="20" height="20" fill="currentColor" />
+        <path
+          d="M8 20V8H20"
+          fill="none"
+          stroke="var(--color-background)"
+          strokeWidth="4"
+        />
+      </svg>
+      <span className="text-[17px] font-semibold tracking-[-0.01em]">
+        {site.name}
+      </span>
     </span>
   )
 }

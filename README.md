@@ -31,8 +31,8 @@ HTML while preserving TanStack Start's server fallback for unknown routes.
 - `src/pages` composes complete pages from named sections.
 - `src/components` contains reusable UI and focused interactive elements.
 - `src/content` contains structured business copy used by page sections.
-- `src/site.ts` is the single source for site identity, navigation, metadata,
-  contact details, and the snapshot email link.
+- `src/site.ts` is the single source for site identity, metadata, contact
+  details, and the assessment email link.
 - `src/start.ts` applies response headers to server-rendered fallbacks; static
   assets use the matching rules in `public/_headers`.
 

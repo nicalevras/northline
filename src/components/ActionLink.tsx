@@ -11,7 +11,7 @@ const variants = {
 
 const sizes = {
   default: 'px-5 py-3 text-sm',
-  compact: 'px-3 py-1.5 text-sm',
+  compact: 'inline-flex min-h-11 items-center px-4 py-2 text-sm',
 } as const
 
 type ActionLinkProps = ComponentPropsWithoutRef<'a'> & {
