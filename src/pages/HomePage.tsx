@@ -6,9 +6,10 @@ import {
 } from '../components/ContentSection'
 import { ContactForm } from '../components/ContactForm'
 import { DigitalEstate } from '../components/DigitalEstate'
-import { MunicipalWork } from '../components/MunicipalWork'
+import { LeadershipBrief } from '../components/LeadershipBrief'
 import { ScreenReaderSpecimen } from '../components/ScreenReaderSpecimen'
-import { deadlines, findings, phases } from '../content/home'
+import { TeamCertifications } from '../components/TeamCertifications'
+import { deadlines, phases } from '../content/home'
 
 export function HomePage() {
   return (
@@ -16,8 +17,8 @@ export function HomePage() {
       <HeroSection />
       <ScopeSection />
       <MandateSection />
-      <MunicipalExperienceSection />
       <ProcessSection />
+      <MunicipalExperienceSection />
       <BeginSection />
     </main>
   )
@@ -67,7 +68,7 @@ function MandateSection() {
     >
       <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-12">
         <div>
-          <SectionLabel onBrand>02 — Mandate</SectionLabel>
+          <SectionLabel onBrand>Mandate</SectionLabel>
           <SectionHeading className="md:!text-4xl">
             The DOJ set the standard. We implement it.
           </SectionHeading>
@@ -125,7 +126,7 @@ function ScopeSection() {
       className="scroll-mt-32 md:scroll-mt-16"
     >
       <div className="flex w-full flex-col items-center text-center">
-        <SectionLabel>01 — Scope</SectionLabel>
+        <SectionLabel>Scope</SectionLabel>
         <SectionHeading>Where accessibility work happens.</SectionHeading>
         <p className="mt-5 w-full max-w-3xl text-pretty leading-relaxed text-muted-foreground">
           Northline tests the paths residents use, then implements accessible
@@ -143,40 +144,69 @@ function ProcessSection() {
   return (
     <ContentSection
       id="process"
-      tone="muted"
       className="scroll-mt-32 md:scroll-mt-16"
     >
-      <SectionLabel>04 — Process</SectionLabel>
-      <SectionHeading>A clear path from assessment to assurance.</SectionHeading>
-      <ol className="mt-12 grid gap-px border border-border bg-border md:grid-cols-3">
-        {phases.map((phase, index) => (
-          <li
-            key={phase.name}
-            className="flex flex-col gap-6 bg-background p-6 md:p-8"
-          >
-            <div className="flex items-baseline justify-between gap-2">
-              <span className="font-mono text-xs text-muted-foreground">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <span className="font-mono text-sm font-medium text-primary">
-                {phase.price}
-              </span>
-            </div>
-            <div>
-              <h3 className="mb-2 text-xl font-semibold tracking-tight">
-                {phase.name}
-              </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {phase.text}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ol>
-      <p className="mt-6 text-sm text-muted-foreground">
-        Work is quoted in advance and structured for ordinary municipal
-        purchasing.
-      </p>
+      <div className="flex w-full flex-col items-center text-center">
+        <SectionLabel>Process</SectionLabel>
+        <SectionHeading>A clear path from evidence to assurance.</SectionHeading>
+        <p className="mt-5 max-w-3xl text-pretty leading-relaxed text-muted-foreground">
+          Each engagement establishes what is failing, changes what residents
+          use, and creates a practical way to hold the standard as systems and
+          content change.
+        </p>
+      </div>
+
+      <div className="mt-12 grid border border-border bg-card lg:grid-cols-[minmax(20rem,0.8fr)_minmax(0,1.2fr)]">
+        <div className="flex flex-col bg-primary p-6 text-primary-foreground md:p-8">
+          <h3 className="text-2xl font-semibold tracking-tight">
+            Three phases. One accountable record.
+          </h3>
+
+          <ol className="mt-8">
+            {phases.map((phase, index) => (
+              <li
+                key={phase.name}
+                className={`relative grid grid-cols-[2.25rem_minmax(0,1fr)] gap-4 ${index < phases.length - 1 ? 'pb-6' : ''}`}
+              >
+                {index < phases.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute -bottom-[1.125rem] left-[1.1rem] top-[1.125rem] w-px bg-primary-foreground/35"
+                  />
+                )}
+                <span className="relative z-10 flex size-9 items-center justify-center border border-primary-foreground/45 bg-primary font-mono text-xs font-medium">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div className="min-w-0">
+                  <h4 className="font-semibold tracking-tight">{phase.name}</h4>
+                  <p className="mt-2 text-xs leading-relaxed opacity-85">
+                    {phase.text}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mt-8">
+            <p className="text-xl font-semibold tracking-tight">
+              Ready for an assessment?
+            </p>
+            <p className="mt-2 max-w-sm text-sm leading-relaxed opacity-85">
+              Start with evidence leadership can assign, track, and act on.
+            </p>
+            <ActionLink
+              href="#start"
+              variant="inverse"
+              size="compact"
+              className="focus-on-primary mt-5"
+            >
+              Request an assessment
+            </ActionLink>
+          </div>
+        </div>
+
+        <LeadershipBrief />
+      </div>
     </ContentSection>
   )
 }
@@ -185,30 +215,27 @@ function MunicipalExperienceSection() {
   return (
     <ContentSection
       id="experience"
+      tone="muted"
       className="scroll-mt-32 overflow-x-clip md:scroll-mt-16"
     >
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-16">
-        <div className="lg:col-start-2 lg:row-start-1">
-          <SectionLabel>03 — Experience</SectionLabel>
-          <SectionHeading className="max-w-xl">
-            Municipal experience. Available nationwide.
-          </SectionHeading>
-          <div className="mt-5 flex max-w-xl flex-col gap-4 text-pretty leading-relaxed text-muted-foreground">
-            <p>
-              Northline&apos;s method comes from hands-on municipal work across
-              public websites, document libraries, staff publishing workflows,
-              and resident-facing services.
-            </p>
-            <p>
-              That experience shapes a practical implementation sequence for
-              cities, towns, counties, districts, and public authorities
-              nationwide.
-            </p>
-          </div>
+      <div className="flex w-full flex-col items-center text-center">
+        <SectionLabel>Experience</SectionLabel>
+        <SectionHeading className="md:!text-4xl">
+          Municipal experience. Available nationwide.
+        </SectionHeading>
+        <div className="mt-5 flex max-w-3xl flex-col gap-4 text-pretty leading-relaxed text-muted-foreground">
+          <p>
+            Northline&apos;s method comes from hands-on municipal work across
+            public websites, document libraries, staff publishing workflows,
+            and resident-facing services.
+          </p>
+          <p>
+            That experience shapes a practical implementation sequence for
+            cities, towns, counties, districts, and public authorities
+            nationwide.
+          </p>
         </div>
-        <div className="lg:col-start-1 lg:row-start-1">
-          <MunicipalWork />
-        </div>
+        <TeamCertifications />
       </div>
     </ContentSection>
   )
@@ -223,7 +250,7 @@ function BeginSection() {
       innerClassName="grid gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-start"
     >
       <div className="flex flex-col items-start">
-        <SectionLabel onBrand>05 — Begin</SectionLabel>
+        <SectionLabel onBrand>Begin</SectionLabel>
         <SectionHeading>Start with an assessment.</SectionHeading>
         <p className="mt-5 max-w-md text-pretty leading-relaxed opacity-85">
           A ranked review of the journeys and documents residents use.
@@ -233,23 +260,6 @@ function BeginSection() {
       </div>
 
       <ContactForm className="md:col-start-2 md:row-span-2 md:row-start-1" />
-
-      <div className="border border-primary-foreground/30 md:col-start-1 md:row-start-2">
-        <p className="border-b border-primary-foreground/30 px-4 py-2 font-mono text-xs uppercase tracking-widest opacity-80">
-          Assessment · p. 1 — Leadership brief
-        </p>
-        <dl>
-          {findings.map((item, index) => (
-            <div
-              key={item.finding}
-              className={`flex items-baseline justify-between gap-4 px-4 py-3 ${index < findings.length - 1 ? 'border-b border-primary-foreground/20' : ''}`}
-            >
-              <dt className="text-sm opacity-85">{item.finding}</dt>
-              <dd className="font-mono text-xs">{item.priority}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
     </ContentSection>
   )
 }

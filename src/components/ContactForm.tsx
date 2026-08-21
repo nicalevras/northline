@@ -19,10 +19,10 @@ export function ContactForm({ className = '' }: ContactFormProps) {
       aria-labelledby="contact-form-heading"
       aria-describedby="contact-form-note contact-form-status"
       onSubmit={handleSubmit}
-      className={`bg-background p-5 text-foreground sm:p-6 md:p-8 ${className}`.trim()}
+      className={`text-primary-foreground ${className}`.trim()}
     >
       <div>
-        <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+        <p className="font-mono text-xs uppercase tracking-widest opacity-75">
           Assessment request
         </p>
         <h3
@@ -31,7 +31,7 @@ export function ContactForm({ className = '' }: ContactFormProps) {
         >
           Tell us about your public website.
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-3 text-sm leading-relaxed opacity-85">
           Start with the public entity, its website, and the person we should
           reply to.
         </p>
@@ -45,7 +45,7 @@ export function ContactForm({ className = '' }: ContactFormProps) {
             type="text"
             autoComplete="name"
             required
-            className="mt-2 min-h-11 w-full border border-border bg-card px-3 py-2.5 font-normal"
+            className="focus-on-primary mt-2 min-h-11 w-full border border-primary-foreground/45 bg-primary-foreground px-3 py-2.5 font-normal text-foreground"
           />
         </label>
 
@@ -56,7 +56,7 @@ export function ContactForm({ className = '' }: ContactFormProps) {
             type="email"
             autoComplete="email"
             required
-            className="mt-2 min-h-11 w-full border border-border bg-card px-3 py-2.5 font-normal"
+            className="focus-on-primary mt-2 min-h-11 w-full border border-primary-foreground/45 bg-primary-foreground px-3 py-2.5 font-normal text-foreground"
           />
         </label>
 
@@ -67,7 +67,7 @@ export function ContactForm({ className = '' }: ContactFormProps) {
             type="text"
             autoComplete="organization"
             required
-            className="mt-2 min-h-11 w-full border border-border bg-card px-3 py-2.5 font-normal"
+            className="focus-on-primary mt-2 min-h-11 w-full border border-primary-foreground/45 bg-primary-foreground px-3 py-2.5 font-normal text-foreground"
           />
         </label>
 
@@ -79,7 +79,7 @@ export function ContactForm({ className = '' }: ContactFormProps) {
             inputMode="url"
             autoComplete="url"
             required
-            className="mt-2 min-h-11 w-full border border-border bg-card px-3 py-2.5 font-normal"
+            className="focus-on-primary mt-2 min-h-11 w-full border border-primary-foreground/45 bg-primary-foreground px-3 py-2.5 font-normal text-foreground"
           />
         </label>
 
@@ -88,13 +88,13 @@ export function ContactForm({ className = '' }: ContactFormProps) {
       <div className="mt-6 flex flex-col items-start gap-3">
         <button
           type="submit"
-          className="bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+          className="focus-on-primary bg-primary-foreground px-5 py-3 text-sm font-medium text-primary transition-opacity hover:opacity-90"
         >
           Request an assessment
         </button>
         <p
           id="contact-form-note"
-          className="text-xs leading-relaxed text-muted-foreground"
+          className="text-xs leading-relaxed opacity-75"
         >
           Preview only. Submissions are not yet enabled. Do not include
           sensitive personal information.
@@ -102,7 +102,7 @@ export function ContactForm({ className = '' }: ContactFormProps) {
         <p
           id="contact-form-status"
           aria-live="polite"
-          className="text-sm font-medium text-primary"
+          className="text-sm font-medium text-primary-foreground"
         >
           {status}
         </p>

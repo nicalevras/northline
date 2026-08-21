@@ -1,16 +1,3 @@
-export const municipalities = [
-  { name: 'Agawam', seal: '/seals/agawam.png' },
-  { name: 'Amherst', seal: '/seals/amherst.png' },
-  { name: 'Chicopee', seal: '/seals/chicopee.png' },
-  { name: 'Easthampton', seal: '/seals/easthampton.png' },
-  { name: 'Holyoke', seal: '/seals/holyoke.png' },
-  {
-    name: 'West Springfield',
-    seal: '/seals/west-springfield.svg',
-  },
-  { name: 'Westfield', seal: '/seals/westfield.png' },
-] as const
-
 export const deadlines = [
   {
     audience: 'Population of 50,000 or more',
@@ -28,19 +15,16 @@ export const deadlines = [
 
 export const phases = [
   {
-    price: 'Fixed-fee proposal',
     name: 'Assessment',
-    text: 'Ten business days. Live inventory, manual review of priority journeys, ranked findings, and a leadership brief.',
+    text: 'Live inventory, manual testing, ranked findings, and a leadership brief.',
   },
   {
-    price: 'Scoped, in writing',
     name: 'Implementation',
-    text: 'Remediation of templates, content, and active documents, plus specifications and acceptance criteria for contracted systems.',
+    text: 'Templates, content, active documents, and vendor acceptance criteria.',
   },
   {
-    price: 'Optional ongoing support',
     name: 'Assurance',
-    text: 'Scheduled inventory review, drift reporting, and a standing program that holds the standard as new content is published.',
+    text: 'Inventory reviews, drift reporting, and publishing controls.',
   },
 ] as const
 
@@ -60,11 +44,23 @@ export const estateLayers = [
 ] as const
 
 export const findings = [
-  { finding: 'Active permit application is untagged', priority: 'P1' },
+  'Active permit application is untagged',
+  'Vendor-controlled payment service blocks assistive technology',
+  'Current agenda packet has no text layer',
+  'Historic packet meets archive criteria',
+] as const
+
+export const certifications = [
   {
-    finding: 'Vendor-controlled payment service blocks assistive technology',
-    priority: 'P1',
+    abbreviation: 'CPACC',
+    descriptor: 'Core competencies',
+    name: 'IAAP Certified Professional in Accessibility Core Competencies',
+    image: '/certifications/iaap-cpacc.png',
   },
-  { finding: 'Current agenda packet has no text layer', priority: 'P2' },
-  { finding: 'Historic packet meets archive criteria', priority: 'Deferred' },
+  {
+    abbreviation: 'WAS',
+    descriptor: 'Web accessibility',
+    name: 'IAAP Web Accessibility Specialist',
+    image: '/certifications/iaap-was.png',
+  },
 ] as const

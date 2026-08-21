@@ -5,8 +5,8 @@ import { SiteMark } from './SiteMark'
 const navigationItems = [
   { href: '/#scope', label: 'Scope' },
   { href: '/#mandate', label: 'Mandate' },
-  { href: '/#experience', label: 'Experience' },
   { href: '/#process', label: 'Process' },
+  { href: '/#experience', label: 'Experience' },
 ] as const
 
 export function SiteHeader() {
