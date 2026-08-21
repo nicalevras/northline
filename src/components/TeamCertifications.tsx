@@ -2,20 +2,29 @@ import { certifications } from '../content/home'
 
 export function TeamCertifications() {
   return (
-    <div className="mt-8 w-full max-w-2xl border-t border-foreground/15 pt-6 text-center">
-      <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-        Team certifications
-      </p>
-      <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-        Active IAAP professional credentials held across the Northline team.
+    <aside
+      aria-labelledby="team-certifications-heading"
+      className="pt-1 lg:pl-4"
+    >
+      <h3
+        id="team-certifications-heading"
+        className="font-mono text-xs uppercase tracking-widest text-primary"
+      >
+        Professional credentials
+      </h3>
+      <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
+        Current IAAP credentials held by members of the Public Layer team.
       </p>
 
       <ul
-        aria-label="IAAP certifications held by Northline team members"
-        className="mx-auto mt-5 grid max-w-xs grid-cols-2 gap-6"
+        aria-label="IAAP certifications held by Public Layer team members"
+        className="mt-7 space-y-7"
       >
         {certifications.map((certification) => (
-          <li key={certification.abbreviation} className="text-center">
+          <li
+            key={certification.abbreviation}
+            className="flex items-center gap-4"
+          >
             <img
               src={certification.image}
               alt=""
@@ -23,24 +32,19 @@ export function TeamCertifications() {
               height="600"
               loading="lazy"
               decoding="async"
-              className="mx-auto size-20 sm:size-24"
+              className="size-16 shrink-0 sm:size-20"
             />
-            <p
-              aria-hidden="true"
-              className="mt-3 font-mono text-xs font-medium tracking-wider text-foreground"
-            >
-              {certification.abbreviation}
-            </p>
-            <p
-              aria-hidden="true"
-              className="mt-1 text-xs leading-snug text-muted-foreground"
-            >
-              {certification.descriptor}
-            </p>
-            <span className="sr-only">{certification.name}</span>
+            <div>
+              <p className="font-mono text-sm font-medium tracking-wider text-foreground">
+                {certification.abbreviation}
+              </p>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                {certification.name.replace('IAAP ', '')}
+              </p>
+            </div>
           </li>
         ))}
       </ul>
-    </div>
+    </aside>
   )
 }

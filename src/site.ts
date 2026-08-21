@@ -1,11 +1,11 @@
 export const site = {
-  name: 'Northline',
-  legalName: 'Northline LLC',
-  title: 'Northline — Title II implementation for public entities',
+  name: 'Public Layer',
+  legalName: 'Public Layer',
+  title: 'Public Layer — Title II implementation for public entities',
   description:
-    'Northline implements WCAG 2.1 Level AA for municipal websites, official documents, and contracted resident services under ADA Title II.',
+    'Public Layer implements WCAG 2.1 Level AA for municipal websites, official documents, and contracted resident services under ADA Title II.',
   url: 'https://northline.nickalevras.workers.dev',
-  email: 'hello@northline.example',
+  email: 'hello@publiclayer.example',
   region: 'Nationwide. Based in Massachusetts.',
 } as const
 

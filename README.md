@@ -1,6 +1,6 @@
-# Northline
+# Public Layer
 
-Northline's prerendered one-page site for its Title II municipal accessibility
+Public Layer's prerendered one-page site for its Title II municipal accessibility
 practice. It uses TanStack Start, React, Tailwind CSS, Vite, and Cloudflare
 Workers.
 
@@ -36,7 +36,7 @@ HTML while preserving TanStack Start's server fallback for unknown routes.
 - `src/start.ts` applies response headers to server-rendered fallbacks; static
   assets use the matching rules in `public/_headers`.
 
-Before launch, replace the placeholder `hello@northline.example` address in
+Before launch, replace the placeholder `hello@publiclayer.example` address in
 `src/site.ts`. If the production domain changes, update `site.url`,
 `public/robots.txt`, and `public/sitemap.xml` together.
 

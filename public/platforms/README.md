@@ -1,8 +1,8 @@
 # Platform marks
 
 Official platform marks are stored locally to avoid third-party requests from
-the Northline website. They remain the property of their respective owners and
-are used only to identify platforms Northline works within.
+the Public Layer website. They remain the property of their respective owners
+and are used only to identify platforms Public Layer works within.
 
 - CivicPlus: <https://www.civicplus.com/wp-content/uploads/2023/05/logo.svg>
 - Granicus: <https://granicus.com/wp-content/uploads/2023/05/Granicus-G-logo-Red.svg>

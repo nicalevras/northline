@@ -10,8 +10,8 @@ export function SiteFooter() {
             <SiteMark />
           </p>
           <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Northline implements WCAG 2.1 Level AA for cities, towns, counties,
-            and districts.
+            Public Layer implements WCAG 2.1 Level AA for cities, towns,
+            counties, and districts.
           </p>
         </div>
         <div className="text-sm text-muted-foreground">
@@ -19,7 +19,7 @@ export function SiteFooter() {
             href={`mailto:${site.email}`}
             className="transition-colors hover:text-foreground"
           >
-            Contact Northline
+            Contact Public Layer
           </a>
           <p className="mt-2">{site.region}</p>
         </div>

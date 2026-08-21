@@ -53,14 +53,27 @@ export const findings = [
 export const certifications = [
   {
     abbreviation: 'CPACC',
-    descriptor: 'Core competencies',
     name: 'IAAP Certified Professional in Accessibility Core Competencies',
     image: '/certifications/iaap-cpacc.png',
   },
   {
     abbreviation: 'WAS',
-    descriptor: 'Web accessibility',
     name: 'IAAP Web Accessibility Specialist',
     image: '/certifications/iaap-was.png',
+  },
+] as const
+
+export const experienceReviews = [
+  {
+    quote:
+      'Public Layer gave us a clear view of the barriers residents were encountering—and a practical sequence our staff and vendors could act on.',
+    name: 'Client name',
+    role: 'Title · Public entity',
+  },
+  {
+    quote:
+      'The work moved accessibility from a list of findings to an accountable program with priorities, owners, and acceptance criteria.',
+    name: 'Client name',
+    role: 'Title · Public entity',
   },
 ] as const

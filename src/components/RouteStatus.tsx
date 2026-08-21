@@ -36,7 +36,7 @@ export function NotFoundPage() {
     <RouteStatus
       code="404"
       title="This address is not on the site."
-      description="The URL may be outdated or mistyped. The Northline overview is available on the homepage."
+      description="The URL may be outdated or mistyped. The Public Layer overview is available on the homepage."
       action={<ActionLink href="/">Return home</ActionLink>}
     />
   )

@@ -6,6 +6,7 @@ import {
 } from '../components/ContentSection'
 import { ContactForm } from '../components/ContactForm'
 import { DigitalEstate } from '../components/DigitalEstate'
+import { ExperienceReviews } from '../components/ExperienceReviews'
 import { LeadershipBrief } from '../components/LeadershipBrief'
 import { ScreenReaderSpecimen } from '../components/ScreenReaderSpecimen'
 import { TeamCertifications } from '../components/TeamCertifications'
@@ -37,8 +38,8 @@ function HeroSection() {
             <span className="text-primary">access, apply, and participate.</span>
           </h1>
           <p className="max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">
-            Northline brings municipal websites and official documents to WCAG
-            2.1 Level AA—and gives contracted service providers tested
+            Public Layer brings municipal websites and official documents to
+            WCAG 2.1 Level AA—and gives contracted service providers tested
             requirements to do the same. The work happens on the systems
             already in production.
           </p>
@@ -129,7 +130,7 @@ function ScopeSection() {
         <SectionLabel>Scope</SectionLabel>
         <SectionHeading>Where accessibility work happens.</SectionHeading>
         <p className="mt-5 w-full max-w-3xl text-pretty leading-relaxed text-muted-foreground">
-          Northline tests the paths residents use, then implements accessible
+          Public Layer tests the paths residents use, then implements accessible
           structure, content, and documents in the systems already in
           production. Vendor-controlled services receive reproducible findings,
           implementation specifications, and acceptance criteria.
@@ -217,26 +218,29 @@ function MunicipalExperienceSection() {
       id="experience"
       tone="muted"
       className="scroll-mt-32 overflow-x-clip md:scroll-mt-16"
+      innerClassName="md:!py-24"
     >
-      <div className="flex w-full flex-col items-center text-center">
-        <SectionLabel>Experience</SectionLabel>
-        <SectionHeading className="md:!text-4xl">
-          Municipal experience. Available nationwide.
-        </SectionHeading>
-        <div className="mt-5 flex max-w-3xl flex-col gap-4 text-pretty leading-relaxed text-muted-foreground">
-          <p>
-            Northline&apos;s method comes from hands-on municipal work across
-            public websites, document libraries, staff publishing workflows,
-            and resident-facing services.
-          </p>
-          <p>
-            That experience shapes a practical implementation sequence for
-            cities, towns, counties, districts, and public authorities
-            nationwide.
-          </p>
+      <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)] lg:items-start lg:gap-20">
+        <div>
+          <SectionLabel>Experience</SectionLabel>
+          <SectionHeading className="md:!text-4xl">
+            Municipal experience, backed by professional credentials.
+          </SectionHeading>
+          <div className="mt-6 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
+            <p>
+              Public Layer&apos;s team brings hands-on municipal experience
+              across public websites, official documents, staff publishing
+              workflows, and resident-facing services.
+            </p>
+            <p className="mt-4">
+              We apply that context for cities, towns, counties, districts, and
+              public authorities nationwide.
+            </p>
+          </div>
         </div>
         <TeamCertifications />
       </div>
+      <ExperienceReviews />
     </ContentSection>
   )
 }

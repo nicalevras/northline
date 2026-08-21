@@ -95,8 +95,8 @@ export function DigitalEstate() {
           Representative platforms
         </p>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          Northline works within the systems already in place—not a prescribed
-          technology stack.
+          Public Layer works within the systems already in place—not a
+          prescribed technology stack.
         </p>
         <ul className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
           {platformMarks.map((platform) => (

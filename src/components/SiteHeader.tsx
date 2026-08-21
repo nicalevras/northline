@@ -37,7 +37,7 @@ export function SiteHeader() {
         Skip to content
       </a>
       <div className="mx-auto flex max-w-6xl items-center px-4 py-2.5 md:px-6">
-        <a href="/" aria-label="Northline home" onClick={closeMenu}>
+        <a href="/" aria-label="Public Layer home" onClick={closeMenu}>
           <SiteMark />
         </a>
 
