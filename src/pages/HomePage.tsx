@@ -44,7 +44,9 @@ function HeroSection() {
             already in production.
           </p>
           <div className="flex flex-wrap items-center gap-5">
-            <ActionLink href="#start">Request an assessment</ActionLink>
+            <ActionLink href="#contact-assessment">
+              Request an assessment
+            </ActionLink>
             <a
               href="#scope"
               className="text-sm font-medium underline decoration-foreground/40 underline-offset-4 transition-colors hover:decoration-foreground"
@@ -196,7 +198,7 @@ function ProcessSection() {
               Start with evidence leadership can assign, track, and act on.
             </p>
             <ActionLink
-              href="#start"
+              href="#contact-assessment"
               variant="inverse"
               size="compact"
               className="focus-on-primary mt-5"
@@ -220,23 +222,18 @@ function MunicipalExperienceSection() {
       className="scroll-mt-32 overflow-x-clip md:scroll-mt-16"
       innerClassName="md:!py-24"
     >
-      <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)] lg:items-start lg:gap-20">
-        <div>
-          <SectionLabel>Experience</SectionLabel>
-          <SectionHeading className="md:!text-4xl">
-            Municipal experience, backed by professional credentials.
-          </SectionHeading>
-          <div className="mt-6 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
-            <p>
-              Public Layer&apos;s team brings hands-on municipal experience
-              across public websites, official documents, staff publishing
-              workflows, and resident-facing services.
-            </p>
-            <p className="mt-4">
-              We apply that context for cities, towns, counties, districts, and
-              public authorities nationwide.
-            </p>
-          </div>
+      <div className="flex w-full flex-col items-center text-center">
+        <SectionLabel>Experience</SectionLabel>
+        <SectionHeading className="md:!text-4xl">
+          Municipal experience, backed by professional credentials.
+        </SectionHeading>
+        <div className="mt-5 max-w-3xl text-pretty leading-relaxed text-muted-foreground">
+          <p>
+            Public Layer&apos;s team brings hands-on municipal experience across
+            public websites, official documents, staff publishing workflows,
+            and resident-facing services. We apply that context for cities,
+            towns, counties, districts, and public authorities nationwide.
+          </p>
         </div>
         <TeamCertifications />
       </div>
@@ -248,18 +245,18 @@ function MunicipalExperienceSection() {
 function BeginSection() {
   return (
     <ContentSection
-      id="start"
+      id="contact"
       tone="brand"
       className="scroll-mt-32 md:scroll-mt-16"
       innerClassName="grid gap-12 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-start"
     >
       <div className="flex flex-col items-start">
-        <SectionLabel onBrand>Begin</SectionLabel>
-        <SectionHeading>Start with an assessment.</SectionHeading>
+        <SectionLabel onBrand>Contact</SectionLabel>
+        <SectionHeading>Contact Public Layer.</SectionHeading>
         <p className="mt-5 max-w-md text-pretty leading-relaxed opacity-85">
-          A ranked review of the journeys and documents residents use.
-          Recommended next steps, priced in writing. One written reply within
-          two business days.
+          Request an assessment, ask about work already underway, or send a
+          general accessibility question. Tell us where things stand and what
+          you need next.
         </p>
       </div>
 

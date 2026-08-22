@@ -76,4 +76,10 @@ export const experienceReviews = [
     name: 'Client name',
     role: 'Title · Public entity',
   },
+  {
+    quote:
+      'Public Layer made the technical requirements understandable, gave our team a workable plan, and stayed focused on the services residents rely on.',
+    name: 'Client name',
+    role: 'Title · Public entity',
+  },
 ] as const

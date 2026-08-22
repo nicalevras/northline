@@ -57,7 +57,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2 md:ml-8">
-          <ActionLink href="/#start" size="compact" onClick={closeMenu}>
+          <ActionLink href="/#contact" size="compact" onClick={closeMenu}>
             Contact
           </ActionLink>
           <button

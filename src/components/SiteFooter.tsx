@@ -16,7 +16,7 @@ export function SiteFooter() {
         </div>
         <div className="text-sm text-muted-foreground">
           <a
-            href={`mailto:${site.email}`}
+            href="/#contact"
             className="transition-colors hover:text-foreground"
           >
             Contact Public Layer

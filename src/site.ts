@@ -5,11 +5,5 @@ export const site = {
   description:
     'Public Layer implements WCAG 2.1 Level AA for municipal websites, official documents, and contracted resident services under ADA Title II.',
   url: 'https://publiclayer.us',
-  email: 'hello@publiclayer.example',
   region: 'Nationwide. Based in Massachusetts.',
 } as const
-
-const assessmentSubject = 'Accessibility assessment request'
-const assessmentBody = 'Public entity:\nWebsite URL:\nYour role:'
-
-export const assessmentEmailHref = `mailto:${site.email}?subject=${encodeURIComponent(assessmentSubject)}&body=${encodeURIComponent(assessmentBody)}`
